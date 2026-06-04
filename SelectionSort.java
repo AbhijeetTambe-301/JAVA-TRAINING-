@@ -1,20 +1,23 @@
-import java.util.Scanner;
-
-public class FibonacciSeries {
+public class SelectionSort {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter number of terms: ");
-        int n = sc.nextInt();
+        int[] arr = {4, 2, 5, 1, 3};
 
-        int a = 0, b = 1;
-
-        for (int i = 1; i <= n; i++) {
-            System.out.print(a + " ");
-
-            int c = a + b;
-            a = b;
-            b = c;
+        for (int i = 0; i < arr.length - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            
+            int temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
+        }
+        System.out.println("Sorted array:");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
     }
 }
